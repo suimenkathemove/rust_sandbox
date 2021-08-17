@@ -24,3 +24,15 @@ impl Shape for Circle {
         PI * (self.radius.pow(2) as f64)
     }
 }
+
+// impl Traitは一種類の型を返す場合のみ使用できる
+// fn rectangle_or_circle(is_rectangle: bool, size: u32) -> impl Shape {
+//     if is_rectangle {
+//         Rectangle {
+//             width: size,
+//             height: size,
+//         }
+//     } else {
+//         Circle { radius: size }
+//     }
+// }

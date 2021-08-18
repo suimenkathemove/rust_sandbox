@@ -7,11 +7,11 @@ mod partial_eq;
 mod partial_ord;
 
 pub fn main() {
-    debug::main();
-    partial_eq::main();
-    copy::main();
     clone::main();
-    ord::main();
+    copy::main();
+    debug::main();
     eq::main();
+    ord::main();
+    partial_eq::main();
     partial_ord::main();
 }

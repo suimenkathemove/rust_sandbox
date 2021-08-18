@@ -1,3 +1,7 @@
+//! # Debug
+//!
+//! `{:?}`を使うことができるようになる
+
 #[derive(Debug)]
 struct Struct {
     item: i32,

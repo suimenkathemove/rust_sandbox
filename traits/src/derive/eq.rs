@@ -1,10 +1,10 @@
 //! # Eq
 //!
-//! PartialEqを実装していれば実装できるというわけではない
+//! `PartialEq`を実装していれば実装できるというわけではない
 //!
-//! PartialEqも実装する必要がある
+//! `PartialEq`も実装する必要がある
 //!
-//! フィールドもEqを実装する必要がある
+//! フィールドも`Eq`を実装する必要がある
 
 #[derive(Debug, Eq, PartialEq)]
 struct Struct;

@@ -1,3 +1,7 @@
+//! # PartialEq
+//!
+//! 構造体にderiveすると全フィールドが等しい場合のみ等価になる
+
 #[derive(Debug, PartialEq)]
 struct Struct {
     item: i32,

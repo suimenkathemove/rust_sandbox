@@ -1,4 +1,5 @@
 mod clone;
+mod copy;
 mod debug;
 mod eq;
 mod ord;
@@ -8,6 +9,7 @@ mod partial_ord;
 pub fn main() {
     debug::main();
     partial_eq::main();
+    copy::main();
     clone::main();
     ord::main();
     eq::main();

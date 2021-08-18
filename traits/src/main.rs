@@ -9,6 +9,9 @@
 //! 同じトレイトを同じ型に実装できてしまうので、どの実装を使うのかわからなくなるため
 
 mod a;
+mod derive;
 mod shape;
 
-fn main() {}
+fn main() {
+    derive::main();
+}

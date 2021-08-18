@@ -11,8 +11,8 @@ impl Struct {
 
 #[derive(Debug, PartialEq)]
 enum Enum {
-    item1,
-    item2,
+    Item1,
+    Item2,
 }
 
 pub fn main() {
@@ -26,8 +26,8 @@ pub fn main() {
     }
 
     {
-        let e1 = Enum::item1;
-        let e2 = Enum::item2;
+        let e1 = Enum::Item1;
+        let e2 = Enum::Item2;
         assert_ne!(e1, e2);
     }
 }

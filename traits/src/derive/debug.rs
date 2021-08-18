@@ -11,13 +11,13 @@ impl Struct {
 
 #[derive(Debug)]
 enum Enum {
-    item,
+    Item,
 }
 
 pub fn main() {
     let s = Struct::new();
     assert_eq!(format!("{:?}", s), "Struct { item: 0 }");
 
-    let e = Enum::item;
-    assert_eq!(format!("{:?}", e), "item");
+    let e = Enum::Item;
+    assert_eq!(format!("{:?}", e), "Item");
 }

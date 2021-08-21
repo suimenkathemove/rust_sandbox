@@ -24,4 +24,8 @@
 //! - String
 //! - Vec<T>
 
-fn main() {}
+mod box_;
+
+fn main() {
+    box_::main();
+}

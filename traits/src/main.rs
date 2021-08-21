@@ -13,7 +13,9 @@
 mod a;
 mod derive;
 mod shape;
+mod trait_object;
 
 fn main() {
     derive::main();
+    trait_object::main();
 }

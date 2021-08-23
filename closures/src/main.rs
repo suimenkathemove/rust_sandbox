@@ -1,3 +1,5 @@
+mod capture_env;
+
 fn main() {
-    println!("Hello, world!");
+    capture_env::main();
 }

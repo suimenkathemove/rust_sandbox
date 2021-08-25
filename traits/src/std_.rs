@@ -1,6 +1,6 @@
 use std::fmt::{Debug, Display};
 
-trait A {
+trait Std {
     fn a1<T: Clone>(&self, t: &T);
     fn a2(&self, t: &impl Clone);
 

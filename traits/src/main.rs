@@ -10,9 +10,9 @@
 //!
 //! 同じトレイトを同じ型に実装できてしまうので、どの実装を使うのかわからなくなるため
 
-mod a;
 mod derive;
 mod shape;
+mod std_;
 mod trait_object;
 
 fn main() {

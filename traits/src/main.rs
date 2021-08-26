@@ -10,12 +10,14 @@
 //!
 //! 同じトレイトを同じ型に実装できてしまうので、どの実装を使うのかわからなくなるため
 
+mod associated_types;
 mod derive;
 mod shape;
 mod std_;
 mod trait_object;
 
 fn main() {
+    associated_types::main();
     derive::main();
     trait_object::main();
 }

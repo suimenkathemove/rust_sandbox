@@ -1,7 +1,7 @@
-//! ## `assert_eq!`, `assert_ne!`
-
+//! # `assert_eq!`, `assert_ne!`
+//!
 //! 引数の順番は基本、`expected`, `actual`
-
+//!
 //! `Debug`トレイトと`PartialEq`トレイトを実装する必要がある
 
 #[derive(Debug, PartialEq)]

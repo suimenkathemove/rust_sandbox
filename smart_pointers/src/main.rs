@@ -25,6 +25,7 @@
 //! - Vec<T>
 
 mod box_;
+mod deref;
 
 fn main() {
     box_::main();

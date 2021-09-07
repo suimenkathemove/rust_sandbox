@@ -26,6 +26,7 @@
 
 mod box_;
 mod deref;
+mod drop;
 
 fn main() {
     box_::main();

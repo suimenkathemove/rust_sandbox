@@ -25,11 +25,13 @@
 //! M:Nスレッドのクレートを使用することで、オーバーヘッドと引き換えに、どのスレッドをいつ走らせるかの制御や、より低コストの文脈切り替えなどができるようになる
 
 mod base;
+mod channel;
 mod join;
 mod move_;
 
 fn main() {
     base::main();
+    channel::main();
     join::main();
     move_::main();
 }

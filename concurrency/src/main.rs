@@ -26,8 +26,10 @@
 
 mod base;
 mod join;
+mod move_;
 
 fn main() {
     base::main();
     join::main();
+    move_::main();
 }

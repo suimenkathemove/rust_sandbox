@@ -1,6 +1,6 @@
-use std::{sync::mpsc, thread};
+use std::{sync::mpsc, thread, time::Duration};
 
-pub fn main() {
+fn single() {
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
@@ -11,4 +11,27 @@ pub fn main() {
     let received = rx.recv().unwrap();
 
     println!("{}", received);
+}
+
+fn multiple() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let nums = vec![1, 2, 3];
+        for num in nums {
+            tx.send(num).unwrap();
+
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    for received in rx {
+        println!("{}", received);
+    }
+}
+
+pub fn main() {
+    single();
+
+    multiple();
 }

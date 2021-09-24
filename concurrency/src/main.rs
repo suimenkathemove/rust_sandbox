@@ -28,10 +28,12 @@ mod base;
 mod channel;
 mod join;
 mod move_;
+mod mutex;
 
 fn main() {
     base::main();
     channel::main();
     join::main();
     move_::main();
+    mutex::main();
 }

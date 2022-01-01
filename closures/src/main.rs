@@ -18,9 +18,11 @@
 mod cacher;
 mod capture_env;
 mod move_;
+mod recursive;
 
 fn main() {
     cacher::main();
     capture_env::main();
     move_::main();
+    recursive::main();
 }

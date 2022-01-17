@@ -9,19 +9,31 @@ pub struct FlattenedNodeItem {
 }
 
 pub fn build_node(flattened_node: Vec<FlattenedNodeItem>) -> Node {
-    let mut node = Node {
+    let node = Node {
         id: "root".to_string(),
         children: vec![],
     };
-    let map = HashMap::from([(node.id.to_string(), &mut node)]);
+    let mut map = HashMap::from([(node.id.to_string(), node.clone())]);
 
     flattened_node.iter().for_each(|item| {
         let parent_id = item.parent_id.to_string();
-        let parent = map.get(&parent_id).unwrap();
+        let mut parent = map
+            .entry((&parent_id).to_string())
+            .or_insert(Node {
+                id: (&parent_id).to_string(),
+                children: vec![],
+            })
+            .clone();
 
-        let node = map.get(&item.id).unwrap();
+        let node = map
+            .entry(item.id.to_string())
+            .or_insert(Node {
+                id: item.id.to_string(),
+                children: vec![],
+            })
+            .clone();
 
-        parent.children.push(*node);
+        parent.children.push(node);
     });
 
     node

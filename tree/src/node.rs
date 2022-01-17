@@ -1,6 +1,6 @@
 use crate::flattened_node::{create_mock_flattened_node, FlattenedNodeItem};
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Node {
     pub id: String,
     pub children: Vec<Node>,

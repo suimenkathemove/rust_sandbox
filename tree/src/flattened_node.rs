@@ -1,8 +1,30 @@
+use crate::node::{create_mock_node, Node};
+use std::collections::HashMap;
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlattenedNodeItem {
     pub id: String,
     pub parent_id: String,
     pub depth: u32,
+}
+
+pub fn build_node(flattened_node: Vec<FlattenedNodeItem>) -> Node {
+    let mut node = Node {
+        id: "root".to_string(),
+        children: vec![],
+    };
+    let map = HashMap::from([(node.id.to_string(), &mut node)]);
+
+    flattened_node.iter().for_each(|item| {
+        let parent_id = item.parent_id.to_string();
+        let parent = map.get(&parent_id).unwrap();
+
+        let node = map.get(&item.id).unwrap();
+
+        parent.children.push(*node);
+    });
+
+    node
 }
 
 pub fn create_mock_flattened_node() -> Vec<FlattenedNodeItem> {
@@ -68,4 +90,12 @@ pub fn create_mock_flattened_node() -> Vec<FlattenedNodeItem> {
             depth: 0,
         },
     ]
+}
+
+#[test]
+fn test_build_node() {
+    let node = create_mock_node();
+    let flattened_node = create_mock_flattened_node();
+
+    assert_eq!(node, build_node(flattened_node));
 }

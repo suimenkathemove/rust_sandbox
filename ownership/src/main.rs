@@ -68,7 +68,9 @@
 //! 型やその一部分でも `Drop` トレイトを実装している場合、 `Copy` トレイトによる注釈ができなくなる
 
 mod lifetimes;
+mod references;
 
 fn main() {
     lifetimes::main();
+    references::main();
 }

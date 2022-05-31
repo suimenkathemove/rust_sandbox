@@ -1,39 +1,41 @@
 use crate::node::{create_mock_node, Node};
-use std::collections::HashMap;
+use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq)]
 pub struct FlattenedNodeItem {
     pub id: String,
     pub parent_id: String,
-    pub depth: u32,
+    pub depth: usize,
 }
 
-pub fn build_node(flattened_node: Vec<FlattenedNodeItem>) -> Node {
-    let node = Node {
+// TODO: Nodeを返したい
+pub fn build_node(flattened_node: Vec<FlattenedNodeItem>) -> Rc<RefCell<Node>> {
+    let node = Rc::new(RefCell::new(Node {
         id: "root".to_string(),
         children: vec![],
-    };
-    let mut map = HashMap::from([(node.id.to_string(), node.clone())]);
+    }));
+    let mut map = HashMap::from([(node.borrow().id.to_string(), Rc::clone(&node))]);
 
     flattened_node.iter().for_each(|item| {
-        let parent_id = item.parent_id.to_string();
-        let mut parent = map
-            .entry((&parent_id).to_string())
-            .or_insert(Node {
-                id: (&parent_id).to_string(),
+        if !map.contains_key(&item.parent_id) {
+            let node = Rc::new(RefCell::new(Node {
+                id: item.parent_id.to_string(),
                 children: vec![],
-            })
-            .clone();
+            }));
+            map.insert(item.parent_id.to_string(), node);
+        }
 
-        let node = map
-            .entry(item.id.to_string())
-            .or_insert(Node {
+        if !map.contains_key(&item.id) {
+            let node = Rc::new(RefCell::new(Node {
                 id: item.id.to_string(),
                 children: vec![],
-            })
-            .clone();
+            }));
+            map.insert(item.id.to_string(), node);
+        }
 
-        parent.children.push(node);
+        let parent = map.get(&item.parent_id).unwrap();
+        let node = map.get(&item.id).unwrap();
+        parent.borrow_mut().children.push(Rc::clone(node));
     });
 
     node
@@ -109,5 +111,5 @@ fn test_build_node() {
     let node = create_mock_node();
     let flattened_node = create_mock_flattened_node();
 
-    assert_eq!(node, build_node(flattened_node));
+    assert_eq!(Rc::new(RefCell::new(node)), build_node(flattened_node));
 }

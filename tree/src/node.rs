@@ -1,4 +1,4 @@
-use crate::flattened_node::{create_mock_flattened_node, FlattenedNodeItem};
+use super::flattened_tree::{create_mock_flattened_tree, FlattenedTreeItem};
 use std::{cell::RefCell, rc::Rc};
 
 #[derive(Debug, PartialEq)]
@@ -8,16 +8,16 @@ pub struct Node {
 }
 
 impl Node {
-    pub fn flatten_node(&self) -> Vec<FlattenedNodeItem> {
-        let mut flattened_node = Vec::<FlattenedNodeItem>::new();
+    pub fn flatten_tree(&self) -> Vec<FlattenedTreeItem> {
+        let mut flattened_tree = Vec::<FlattenedTreeItem>::new();
 
         fn flatten(
-            flattened_node: &mut Vec<FlattenedNodeItem>,
+            flattened_tree: &mut Vec<FlattenedTreeItem>,
             node: Rc<RefCell<Node>>,
             parent_id: String,
             depth: usize,
         ) {
-            flattened_node.push(FlattenedNodeItem {
+            flattened_tree.push(FlattenedTreeItem {
                 id: node.borrow().id.to_string(),
                 parent_id,
                 depth,
@@ -25,7 +25,7 @@ impl Node {
 
             node.borrow().children.iter().for_each(|c| {
                 flatten(
-                    flattened_node,
+                    flattened_tree,
                     Rc::clone(c),
                     node.borrow().id.to_string(),
                     depth + 1,
@@ -33,10 +33,10 @@ impl Node {
             });
         }
         self.children.iter().for_each(|c| {
-            flatten(&mut flattened_node, Rc::clone(c), self.id.to_string(), 0);
+            flatten(&mut flattened_tree, Rc::clone(c), self.id.to_string(), 0);
         });
 
-        flattened_node
+        flattened_tree
     }
 }
 
@@ -100,9 +100,9 @@ pub fn create_mock_node() -> Node {
 }
 
 #[test]
-fn flatten_node() {
-    let flattened_node = create_mock_flattened_node();
+fn test_flatten_tree() {
+    let flattened_tree = create_mock_flattened_tree();
     let node = create_mock_node();
 
-    assert_eq!(flattened_node, node.flatten_node());
+    assert_eq!(flattened_tree, node.flatten_tree());
 }

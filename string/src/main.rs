@@ -1,3 +1,9 @@
+use unicode_segmentation::UnicodeSegmentation;
+
 fn main() {
-    println!("Hello, world!");
+    let s = "あいうえお";
+
+    assert_eq!(s.len(), 15);
+
+    assert_eq!(s.graphemes(true).count(), 5);
 }

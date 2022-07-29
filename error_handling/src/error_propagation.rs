@@ -1,7 +1,7 @@
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-enum Error {
+pub enum Error {
     #[error("error")]
     Variant(i32),
 }
@@ -19,7 +19,9 @@ fn exec_func(arg: i32) -> Result<(), Error> {
     Ok(())
 }
 
-pub fn main() {
+pub fn main() -> Result<i32, Error> {
     exec_func(2).ok();
     println!("{}", exec_func(1).err().unwrap());
+
+    Ok(func(1)?)
 }

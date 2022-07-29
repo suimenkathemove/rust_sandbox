@@ -28,7 +28,7 @@ fn display_result<T: std::fmt::Display, E: std::fmt::Display>(result: Result<T, 
     }
 }
 
-fn main() {
+fn main() -> Result<(), error_propagation::Error> {
     // matchで場合分けする
 
     // 起こり得るエラーの種類を網羅した列挙型を定義する
@@ -45,5 +45,6 @@ fn main() {
     let some_v = div(2, 2).ok();
     let some_e = div(2, 0).err();
 
-    error_propagation::main();
+    error_propagation::main()?;
+    Ok(())
 }

@@ -39,4 +39,7 @@ fn main() {
             println!("{}", e);
         }
     }
+
+    let some_v = div(2, 2).ok();
+    let some_e = div(2, 0).err();
 }

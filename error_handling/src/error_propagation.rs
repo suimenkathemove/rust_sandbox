@@ -19,6 +19,12 @@ fn exec_func(arg: i32) -> Result<(), Error> {
     Ok(())
 }
 
+// std::error::Errorトレイトを満たす型　トレイトオブジェクト
+fn multiple_error(s: &str) -> Result<i32, Box<dyn std::error::Error>> {
+    let i = s.parse::<i32>()?;
+    Ok(func(i)?)
+}
+
 pub fn main() -> Result<i32, Error> {
     exec_func(2).ok();
     println!("{}", exec_func(1).err().unwrap());

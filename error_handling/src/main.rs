@@ -1,3 +1,5 @@
+mod error_propagation;
+
 use thiserror::Error;
 
 // エラーの内容を表示できるようになる
@@ -42,4 +44,6 @@ fn main() {
 
     let some_v = div(2, 2).ok();
     let some_e = div(2, 0).err();
+
+    error_propagation::main();
 }

@@ -1,4 +1,9 @@
+use thiserror::Error;
+
+// エラーの内容を表示できるようになる
+#[derive(Error, Debug)]
 enum DivError {
+    #[error("{0} divided by zero")]
     DivByZero(i32),
 }
 
@@ -26,12 +31,12 @@ fn main() {
 
     // 起こり得るエラーの種類を網羅した列挙型を定義する
 
-    match div(2, 2) {
+    match div(2, 0) {
         Ok(v) => {
             println!("{}", v);
         }
-        Err(DivError::DivByZero(x)) => {
-            println!("{}", x);
+        Err(e) => {
+            println!("{}", e);
         }
     }
 }

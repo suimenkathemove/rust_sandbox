@@ -5,6 +5,8 @@
 //! `cmp`は、`Partial`の`partial_cmp`と同じように振る舞う
 //!
 //! `PartialOrd`と`Eq`も実装する必要がある
+//!
+//! 必ず比較ができる場合に実装する
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
 struct Struct;

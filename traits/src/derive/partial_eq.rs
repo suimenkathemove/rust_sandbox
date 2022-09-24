@@ -1,6 +1,8 @@
 //! # PartialEq
 //!
 //! 構造体にderiveすると全フィールドが等しい場合のみ等価になる
+//!
+//! 必ずしも比較ができるわけではない場合に実装する
 
 #[derive(Debug, PartialEq)]
 struct Struct {

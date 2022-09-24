@@ -3,6 +3,8 @@
 //! `PartialEq`も実装する必要がある
 //!
 //! `partial_cmp`メソッドが実装され、これは`Option<Ordering>`を返す
+//!
+//! 必ずしも比較ができるわけではない場合に実装する
 
 use std::f64::NAN;
 

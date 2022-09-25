@@ -1,3 +1,5 @@
+mod clap_;
+
 fn main() {
-    println!("Hello, world!");
+    clap_::main();
 }

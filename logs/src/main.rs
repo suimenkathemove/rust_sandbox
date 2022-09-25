@@ -1,3 +1,5 @@
+mod env_logger_;
+
 fn main() {
-    println!("Hello, world!");
+    env_logger_::main();
 }

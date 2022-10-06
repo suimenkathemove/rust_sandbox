@@ -3,6 +3,8 @@
 //! `/src`に置く
 //!
 //! `#cfg(test)`で注釈された`tests`モジュールをテスト対象のファイルに置く
+//!
+//! `#cfg(test)`で注釈するとプロダクションコードから削除される
 
 fn add(left: i32, right: i32) -> i32 {
     left + right

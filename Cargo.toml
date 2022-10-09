@@ -7,6 +7,7 @@ members = [
     "concurrency",
     "enums",
     "error_handling",
+    "features",
     "generics",
     "io",
     "iterators",

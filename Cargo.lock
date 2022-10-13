@@ -253,6 +253,10 @@ name = "ownership"
 version = "0.1.0"
 
 [[package]]
+name = "persistence"
+version = "0.1.0"
+
+[[package]]
 name = "pin-project-lite"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"

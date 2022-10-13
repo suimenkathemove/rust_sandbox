@@ -14,6 +14,7 @@ members = [
     "logs",
     "macros",
     "ownership",
+    "persistence",
     "sandbox",
     "smart_pointers",
     "string",

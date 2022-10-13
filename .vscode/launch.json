@@ -266,6 +266,43 @@
         {
             "type": "lldb",
             "request": "launch",
+            "name": "Debug executable 'features'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=features",
+                    "--package=features"
+                ],
+                "filter": {
+                    "name": "features",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'features'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=features",
+                    "--package=features"
+                ],
+                "filter": {
+                    "name": "features",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
             "name": "Debug executable 'generics'",
             "cargo": {
                 "args": [
@@ -479,6 +516,43 @@
                 ],
                 "filter": {
                     "name": "ownership",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'persistence'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=persistence",
+                    "--package=persistence"
+                ],
+                "filter": {
+                    "name": "persistence",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'persistence'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=persistence",
+                    "--package=persistence"
+                ],
+                "filter": {
+                    "name": "persistence",
                     "kind": "bin"
                 }
             },

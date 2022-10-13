@@ -13,6 +13,10 @@
 //! `Rc`はシングルスレッドの文脈でのみ使用する
 //!
 //! `Rc::clone`は参照カウントをインクリメントするのみ
+//!
+//! ## TODO
+//!
+//! - https://qiita.com/qnighy/items/4bbbb20e71cf4ae527b9
 
 use std::rc::Rc;
 

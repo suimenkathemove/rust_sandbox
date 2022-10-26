@@ -20,6 +20,7 @@ members = [
     "string",
     "structs",
     "tests",
+    "time",
     "traits",
     "tree",
     "validation",

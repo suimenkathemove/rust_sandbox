@@ -1,3 +1,6 @@
+use std::time::{SystemTime, UNIX_EPOCH};
+
 fn main() {
-    println!("Hello, world!");
+    let now = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
+    println!("{:?}", now);
 }

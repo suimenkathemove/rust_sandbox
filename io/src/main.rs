@@ -1,3 +1,5 @@
+mod write;
+
 fn main() {
-    println!("Hello, world!");
+    write::main();
 }

@@ -7,14 +7,24 @@
 use crate::todo::{CreateTodo, Id, Todo, TodoRepositoryTrait, UpdateTodo};
 use std::{
     collections::HashMap,
-    sync::{Arc, RwLock},
+    sync::{Arc, RwLock, RwLockReadGuard, RwLockWriteGuard},
 };
 
-pub struct TodoRepository(Arc<RwLock<HashMap<Id, Todo>>>);
+type Todos = HashMap<Id, Todo>;
+
+pub struct TodoRepository(Arc<RwLock<Todos>>);
 
 impl TodoRepository {
     pub fn new() -> Self {
         Self(Arc::default())
+    }
+
+    fn read_todos_ref(&self) -> RwLockReadGuard<Todos> {
+        self.0.read().unwrap()
+    }
+
+    fn write_todos_ref(&self) -> RwLockWriteGuard<Todos> {
+        self.0.write().unwrap()
     }
 }
 

@@ -6,6 +6,7 @@ members = [
     "collections",
     "concurrency",
     "enums",
+    "env",
     "error_handling",
     "features",
     "generics",

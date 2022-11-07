@@ -1,30 +1,4 @@
 [workspace]
-members = [
-    "asynchronous",
-    "cli",
-    "closures",
-    "collections",
-    "concurrency",
-    "enums",
-    "env",
-    "error_handling",
-    "features",
-    "generics",
-    "image",
-    "io",
-    "iterators",
-    "logs",
-    "macros",
-    "ownership",
-    "persistence",
-    "sandbox",
-    "smart_pointers",
-    "string",
-    "structs",
-    "tests",
-    "time",
-    "traits",
-    "tree",
-    "type_conversion",
-    "validation",
-]
+members = ["*"]
+exclude = [".git", ".vscode", "target"]
+resolver = "2"

@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - type: volume
+        source: app-cargo
+        target: /usr/local/cargo/registry
+      - type: volume
+        source: app-target
+        target: /app/target
+    command: sh -c "cargo watch -x 'run -p ${PROJECT}'"
+
+volumes:
+  app-cargo:
+  app-target:

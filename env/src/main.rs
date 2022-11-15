@@ -1,3 +1,5 @@
+mod option_env;
+
 fn main() {
-    println!("Hello, world!");
+    option_env::main();
 }

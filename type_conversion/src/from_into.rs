@@ -19,3 +19,8 @@ fn main() {
     let b: B = a.into();
     let a = A::from(b);
 }
+
+fn vec() {
+    let a_vec = vec![A("a".to_string())];
+    let b_vec = a_vec.into_iter().map(|a| a.into()).collect::<Vec<B>>();
+}

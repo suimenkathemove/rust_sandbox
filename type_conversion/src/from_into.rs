@@ -1,7 +1,5 @@
 struct A(i32);
 
-struct B(i32);
-
 impl From<B> for A {
     fn from(b: B) -> Self {
         Self(b.0)
@@ -13,6 +11,8 @@ impl Into<B> for A {
         B(self.0)
     }
 }
+
+struct B(i32);
 
 fn main() {
     let a = A(0);

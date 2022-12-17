@@ -6,7 +6,8 @@ use dotenv::dotenv;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv().ok();
 
-    dynamodb::list_table_names().await?;
+    // dynamodb::list_table_names().await?;
+    // dynamodb::get_item().await?;
 
     Ok(())
 }

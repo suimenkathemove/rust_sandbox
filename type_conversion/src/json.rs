@@ -18,8 +18,8 @@ mod tests {
 
     #[test]
     fn json_to_hash_map() {
-        let expected: HashMap<String, String> = from_json(r#"{ "foo": "bar" }"#).unwrap();
-        let actual = HashMap::from([("foo".to_string(), "bar".to_string())]);
+        let expected = HashMap::from([("foo".to_string(), "bar".to_string())]);
+        let actual: HashMap<String, String> = from_json(r#"{ "foo": "bar" }"#).unwrap();
         assert_eq!(expected, actual);
     }
 

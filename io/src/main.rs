@@ -1,5 +1,7 @@
 mod write;
 
-fn main() {
-    write::main();
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    write::main()?;
+
+    Ok(())
 }

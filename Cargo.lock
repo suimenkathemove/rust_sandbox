@@ -1474,9 +1474,6 @@ checksum = "4501abdff3ae82a1c1b477a17252eb69cee9e66eb915c1abaa4f44d873df9f09"
 [[package]]
 name = "sandbox"
 version = "0.1.0"
-dependencies = [
- "type_conversion",
-]
 
 [[package]]
 name = "schannel"

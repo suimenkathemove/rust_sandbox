@@ -1,3 +1,5 @@
+mod cfg_attr;
+
 fn main() {
-    println!("Hello, world!");
+    cfg_attr::main();
 }

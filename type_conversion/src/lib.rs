@@ -1,3 +1,4 @@
+pub mod convert_object;
 mod from_into;
 mod from_into2;
 mod from_into3;

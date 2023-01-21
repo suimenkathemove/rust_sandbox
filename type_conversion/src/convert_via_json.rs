@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-pub fn convert_object<T, U>(value: &T) -> Result<U, serde_json::Error>
+pub fn convert_via_json<T, U>(value: &T) -> Result<U, serde_json::Error>
 where
     T: Serialize,
     U: for<'de> Deserialize<'de>,
@@ -28,7 +28,7 @@ mod tests {
         let expected = Bar::from([("foo".to_string(), 1), ("bar".to_string(), 2)]);
 
         let foo = Foo { foo: 1, bar: 2 };
-        let actual = convert_object(&foo).unwrap();
+        let actual = convert_via_json(&foo).unwrap();
 
         assert_eq!(expected, actual);
     }
@@ -38,7 +38,7 @@ mod tests {
         let expected = Foo { foo: 1, bar: 2 };
 
         let bar = Bar::from([("foo".to_string(), 1), ("bar".to_string(), 2)]);
-        let actual = convert_object(&bar).unwrap();
+        let actual = convert_via_json(&bar).unwrap();
 
         assert_eq!(expected, actual);
     }

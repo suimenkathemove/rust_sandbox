@@ -1,4 +1,6 @@
+mod anyhow_examples;
 mod error_propagation;
+mod thiserror_examples;
 
 use thiserror::Error;
 

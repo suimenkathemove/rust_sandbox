@@ -31,3 +31,36 @@ pub fn main() -> Result<i32, Error> {
 
     Ok(func(1)?)
 }
+
+#[cfg(test)]
+mod tests {
+    enum Error1 {
+        Foo,
+    }
+
+    enum Error2 {
+        Foo,
+    }
+
+    impl From<Error1> for Error2 {
+        fn from(error: Error1) -> Self {
+            match error {
+                Error1::Foo => Error2::Foo,
+            }
+        }
+    }
+
+    fn error1() -> Result<(), Error1> {
+        Err(Error1::Foo)
+    }
+
+    fn error2() -> Result<(), Error2> {
+        // ?を使うとfromを呼び出してくれる
+        Ok(error1()?)
+    }
+
+    #[test]
+    fn test() {
+        let _ = error2();
+    }
+}

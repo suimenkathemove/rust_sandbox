@@ -1,3 +1,5 @@
+mod integer;
+
 fn main() {
-    println!("Hello, world!");
+    integer::main();
 }

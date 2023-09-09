@@ -6,8 +6,10 @@
 
 #![allow(dead_code)]
 
+mod const_;
 mod point;
 
 fn main() {
+    const_::main();
     point::main();
 }

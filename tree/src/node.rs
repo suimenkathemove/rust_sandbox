@@ -1,4 +1,4 @@
-use super::flattened_tree::{create_mock_flattened_tree, FlattenedTreeItem};
+use super::flattened_tree::FlattenedTreeItem;
 use std::{cell::RefCell, rc::Rc};
 
 #[derive(Debug, PartialEq)]
@@ -101,6 +101,8 @@ pub fn create_mock_node() -> Node {
 
 #[test]
 fn test_flatten_tree() {
+    use super::flattened_tree::create_mock_flattened_tree;
+
     let flattened_tree = create_mock_flattened_tree();
     let node = create_mock_node();
 

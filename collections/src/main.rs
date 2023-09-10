@@ -7,6 +7,7 @@
 
 mod b_tree_set;
 mod hash_set;
+mod linked_list;
 
 fn main() {
     println!("Hello, world!");

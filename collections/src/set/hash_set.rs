@@ -1,3 +1,5 @@
+//! # HashSet
+
 #[cfg(test)]
 mod tests {
     use std::collections::HashSet;

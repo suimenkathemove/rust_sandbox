@@ -1,3 +1,7 @@
+//! # BTreeSet
+//!
+//! 順序が保持される
+
 #[cfg(test)]
 mod tests {
     use std::collections::BTreeSet;

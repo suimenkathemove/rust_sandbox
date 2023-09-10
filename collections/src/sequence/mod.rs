@@ -1,6 +1,6 @@
 //! # Sequence
 //!
-//! シーケンスには、Vec、VecDeque、LinkedListがある
+//! シーケンスには、Vec、VecDeque、LinkedListがある。
 
 mod linked_list;
 mod vec;

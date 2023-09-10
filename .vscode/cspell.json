@@ -1,5 +1,5 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["dotenv", "rusoto", "serde", "thiserror"]
+  "words": ["deque", "dotenv", "rusoto", "serde", "thiserror"]
 }

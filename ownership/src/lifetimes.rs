@@ -86,5 +86,3 @@ impl<'a> S<'a> {
         s
     }
 }
-
-pub fn main() {}

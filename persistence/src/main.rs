@@ -1,5 +1,5 @@
 mod arc_mutex;
-mod arc_rw_lock;
+mod arc_rwlock;
 mod rc_refcell;
 mod todo;
 

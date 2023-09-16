@@ -44,10 +44,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "asynchronous"
-version = "0.1.0"
-
-[[package]]
 name = "attributes"
 version = "0.1.0"
 

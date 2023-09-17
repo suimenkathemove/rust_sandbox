@@ -12,12 +12,4 @@
 
 mod associated_types;
 mod derive;
-mod shape;
-mod std_;
 mod trait_object;
-
-fn main() {
-    associated_types::main();
-    derive::main();
-    trait_object::main();
-}

@@ -16,7 +16,6 @@
 //! [ベンチマークテスト](https://doc.rust-lang.org/unstable-book/library-features/test.html)
 
 mod base;
-mod err;
 mod ignore;
 mod message;
 mod options;

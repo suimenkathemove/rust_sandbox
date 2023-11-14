@@ -50,6 +50,7 @@ fn ok() {
 }
 
 #[test]
+#[should_panic]
 fn fail() {
     println!("失敗します");
 

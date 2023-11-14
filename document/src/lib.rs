@@ -13,14 +13,19 @@
 //!
 //! 型や関数のドキュメントは、それらの直上に`///`の後に書く。
 //! よくある項目は、Examples, Errors, Panicsなどである。
+//!
+//! ## document test
+//!
+//! documentation comment中の、```で囲まれたコードをテストすること。
+//! `cargo test`でテストを実行する。
 
 mod module {
     //! インラインのmoduleにドキュメントを書く場合はこのように書く。
 }
 
 /// 関数にドキュメントを書く場合はこのように書く。
-fn function() {}
-
-fn main() {
-    println!("Hello, world!");
-}
+/// ```
+/// use document::function;
+/// function();
+/// ```
+pub fn function() {}

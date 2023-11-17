@@ -34,6 +34,5 @@ mod mutex;
 mod spawn_join;
 
 fn main() {
-    channel::main();
     mutex::main();
 }

@@ -7,5 +7,6 @@
 
 mod associated_types;
 mod derive;
+mod existential_type;
 mod super_trait;
 mod trait_object;

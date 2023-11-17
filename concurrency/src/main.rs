@@ -30,6 +30,7 @@
 //! マルチスレッドによる高速化は、環境に大きく依存する
 
 mod channel;
+mod channel_sandbox;
 mod mutex;
 mod spawn_join;
 

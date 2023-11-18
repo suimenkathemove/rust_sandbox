@@ -31,9 +31,7 @@
 
 mod channel;
 mod channel_sandbox;
-mod mutex;
+mod mutual_exclusion;
 mod spawn_join;
 
-fn main() {
-    mutex::main();
-}
+fn main() {}

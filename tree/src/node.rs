@@ -1,7 +1,7 @@
 use super::flattened_tree::FlattenedTreeItem;
 use std::{cell::RefCell, rc::Rc};
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Node {
     pub id: String,
     pub children: Vec<Rc<RefCell<Node>>>,

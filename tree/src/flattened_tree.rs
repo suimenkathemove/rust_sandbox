@@ -8,8 +8,7 @@ pub struct FlattenedTreeItem {
     pub depth: usize,
 }
 
-// TODO: Nodeを返したい
-pub fn build_tree(flattened_tree: Vec<FlattenedTreeItem>) -> Rc<RefCell<Node>> {
+pub fn build_tree(flattened_tree: Vec<FlattenedTreeItem>) -> Node {
     let tree = Rc::new(RefCell::new(Node {
         id: "root".to_string(),
         children: vec![],
@@ -38,7 +37,7 @@ pub fn build_tree(flattened_tree: Vec<FlattenedTreeItem>) -> Rc<RefCell<Node>> {
         parent.borrow_mut().children.push(Rc::clone(node));
     });
 
-    tree
+    tree.clone().borrow().clone()
 }
 
 pub fn create_mock_flattened_tree() -> Vec<FlattenedTreeItem> {
@@ -113,5 +112,5 @@ fn test_build_tree() {
     let node = create_mock_node();
     let flattened_tree = create_mock_flattened_tree();
 
-    assert_eq!(Rc::new(RefCell::new(node)), build_tree(flattened_tree));
+    assert_eq!(node, build_tree(flattened_tree));
 }

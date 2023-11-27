@@ -1,5 +1,4 @@
-mod clone;
-mod copy;
+mod copy_clone;
 mod debug;
 mod default;
 mod display;

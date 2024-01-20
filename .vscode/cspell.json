@@ -1,5 +1,13 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["deque", "dotenv", "rusoto", "serde", "thiserror"]
+  "words": [
+    "automock",
+    "deque",
+    "dotenv",
+    "mockall",
+    "rusoto",
+    "serde",
+    "thiserror"
+  ]
 }

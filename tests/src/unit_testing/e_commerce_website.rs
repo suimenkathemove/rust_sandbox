@@ -43,9 +43,7 @@ impl IStore for Store {
     }
 
     fn add_inventory(&mut self, product: Product, quantity: Quantity) {
-        let inventory = self.get_inventory(product);
-        let new_inventory = inventory + quantity;
-        self.inventories.insert(product, new_inventory);
+        *self.inventories.entry(product).or_insert(0) += quantity;
     }
 
     fn remove_inventory(&mut self, product: Product, quantity: Quantity) -> bool {
@@ -53,9 +51,7 @@ impl IStore for Store {
             return false;
         }
 
-        let inventory = self.get_inventory(product);
-        let new_inventory = inventory - quantity;
-        self.inventories.insert(product, new_inventory);
+        *self.inventories.entry(product).or_insert(0) -= quantity;
 
         true
     }

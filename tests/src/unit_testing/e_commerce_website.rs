@@ -18,7 +18,7 @@ trait IStore {
 
     fn add_inventory(&mut self, product: Product, quantity: Quantity);
 
-    fn remove_inventory(&mut self, product: Product, quantity: Quantity) -> bool;
+    fn remove_inventory(&mut self, product: Product, quantity: Quantity);
 }
 
 struct Store {
@@ -46,14 +46,8 @@ impl IStore for Store {
         *self.inventories.entry(product).or_insert(0) += quantity;
     }
 
-    fn remove_inventory(&mut self, product: Product, quantity: Quantity) -> bool {
-        if !self.has_enough_inventory(product, quantity) {
-            return false;
-        }
-
+    fn remove_inventory(&mut self, product: Product, quantity: Quantity) {
         *self.inventories.entry(product).or_insert(0) -= quantity;
-
-        true
     }
 }
 
@@ -65,7 +59,13 @@ impl Customer {
     }
 
     fn purchase(&self, store: &mut impl IStore, product: Product, quantity: Quantity) -> bool {
-        store.remove_inventory(product, quantity)
+        if !store.has_enough_inventory(product, quantity) {
+            return false;
+        }
+
+        store.remove_inventory(product, quantity);
+
+        true
     }
 }
 
@@ -107,10 +107,15 @@ mod london_school {
     fn purchase_succeeds_when_enough_inventory() {
         let mut store_mock = MockIStore::new();
         store_mock
-            .expect_remove_inventory()
+            .expect_has_enough_inventory()
             .with(eq(Product::Shampoo), eq(5))
             .times(1)
             .returning(|_, _| true);
+        store_mock
+            .expect_remove_inventory()
+            .with(eq(Product::Shampoo), eq(5))
+            .times(1)
+            .returning(|_, _| {});
         let customer = Customer::new();
 
         let success = customer.purchase(&mut store_mock, Product::Shampoo, 5);
@@ -122,10 +127,15 @@ mod london_school {
     fn purchase_fails_when_not_enough_inventory() {
         let mut store_mock = MockIStore::new();
         store_mock
-            .expect_remove_inventory()
+            .expect_has_enough_inventory()
             .with(eq(Product::Shampoo), eq(15))
             .times(1)
             .returning(|_, _| false);
+        store_mock
+            .expect_remove_inventory()
+            .with(eq(Product::Shampoo), eq(15))
+            .times(0)
+            .returning(|_, _| {});
         let customer = Customer::new();
 
         let success = customer.purchase(&mut store_mock, Product::Shampoo, 15);

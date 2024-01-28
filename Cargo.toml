@@ -1,4 +1,4 @@
 [workspace]
-members = ["*"]
+members = ["*", "axum_sandbox/async_graphql"]
 exclude = [".git", ".vscode", "target"]
 resolver = "2"

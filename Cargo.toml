@@ -1,4 +1,13 @@
 [workspace]
-members = ["*", "axum_sandbox/async_graphql"]
+members = [
+    "*",
+    "axum_sandbox/async_graphql",
+    "axum_sandbox/hello_world",
+    "axum_sandbox/jwt",
+    "axum_sandbox/realworld-axum-sqlx",
+    "axum_sandbox/todo",
+    "axum_sandbox/todo_graphql_sqlx_postgres",
+    "axum_sandbox/twitter",
+]
 exclude = [".git", ".vscode", "target"]
 resolver = "2"

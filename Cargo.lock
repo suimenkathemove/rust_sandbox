@@ -3622,14 +3622,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "twitter"
-version = "0.1.0"
-dependencies = [
- "axum 0.5.17",
- "tokio",
-]
-
-[[package]]
 name = "type_conversion"
 version = "0.1.0"
 dependencies = [

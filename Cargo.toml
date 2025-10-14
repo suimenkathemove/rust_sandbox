@@ -8,5 +8,5 @@ members = [
     "axum_sandbox/todo",
     "axum_sandbox/todo_graphql_sqlx_postgres",
 ]
-exclude = [".git", ".vscode", "target"]
+exclude = ["..own", ".git", ".vscode", "target"]
 resolver = "2"
